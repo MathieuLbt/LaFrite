@@ -7,10 +7,12 @@
         "symfony/console": "^3.4",
         "symfony/debug-pack": "^1.0",
         "symfony/flex": "^1.0",
+        "symfony/form": "^3.4",
         "symfony/framework-bundle": "^3.4",
         "symfony/lts": "^3",
         "symfony/maker-bundle": "^1.2",
         "symfony/orm-pack": "^1.0",
+        "symfony/security-bundle": "^3.4",
         "symfony/yaml": "^3.4"
     },
     "require-dev": {
