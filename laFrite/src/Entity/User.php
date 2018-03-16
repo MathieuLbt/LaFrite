@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
@@ -12,32 +9,25 @@ class User
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
+     * @ORM\ManyToOne(targetEntity="lafrite\src\Entity\Debt")
+     * @ORM\JoinColumn(name="debt_id', referencedColumnName="id")
      * @ORM\Column(type="integer")
      */
-    protected $id_user;
-
-
+    protected $id;
     /**
-     * @ORM\GeneratedValue()
      * @ORM\Column(type="string")
      */
     protected $username;
-
     /**
-     * @ORM\GeneratedValue()
      * @ORM\Column(type="string")
      */
     protected $password;
-
     /**
-     * @ORM\GeneratedValue()
      * @ORM\Column(type="string")
      */
-    protected $mail_user;
-
+    protected $mail;
     /**
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="blob")
+     * @ORM\Column(type="string")
      */
-    protected $photo_user;
+    protected $photoUser;
 }

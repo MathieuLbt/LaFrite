@@ -65,6 +65,9 @@
       <path value="$PROJECT_DIR$/laFrite/vendor/symfony/stopwatch" />
       <path value="$PROJECT_DIR$/laFrite/vendor/twig/twig" />
       <path value="$PROJECT_DIR$/laFrite/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/laFrite/vendor/stof/doctrine-extensions-bundle" />
+      <path value="$PROJECT_DIR$/laFrite/vendor/behat/transliterator" />
+      <path value="$PROJECT_DIR$/laFrite/vendor/gedmo/doctrine-extensions" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7" />
