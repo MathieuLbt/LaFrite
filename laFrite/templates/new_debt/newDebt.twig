@@ -1,0 +1,38 @@
+{% extends 'index.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Bonjour {{ controller_name }}!</h1>
+
+        Veuillez compléter le formulaire pour ajouter une nouvelle dette
+
+    <form method="post" action="">
+            <li><label for="form_age">Redeveur</label></li>
+            <input type="text" id="redeveur" name="redeveur" placeholder="Le nom du redeveur"/>
+
+        <li><label for="typologie">Sélectionnez la typologie de dette correspondante</label></li>
+                <select name="typologie" id="typologie">
+                    <option value="salade">Salade</option>
+                    <option value="burger">Burger</option>
+                    <option value="asiatique">Asiatique</option>
+                    <option value="pizza">Pizza</option>
+                    <option value="sandwich">Sandwich</option>
+                    <option value="desserts">Desserts</option>
+                    <option value="pâtes">Pâtes</option>
+                    <option value="petit-dejeuner">Petit-déjeuner</option>
+                    <option value="apéro">Apéro</option>
+                    <option value="alcool fort">Alcool fort</option>
+                    <option value="softs">Softs</option>
+                    <option value="biere">Bières/Cocktails/Vins</option>
+                    <option value="sushis">Sushis</option>
+                </select>
+    </form>
+</div>
+{% endblock %}
