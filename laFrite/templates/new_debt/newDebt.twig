@@ -11,28 +11,61 @@
 <div class="example-wrapper">
     <h1>Bonjour {{ controller_name }}!</h1>
 
-        Veuillez compléter le formulaire pour ajouter une nouvelle dette
+    <p>Veuillez compléter le formulaire pour ajouter une nouvelle dette</p><br>
 
     <form method="post" action="">
-            <li><label for="form_age">Redeveur</label></li>
-            <input type="text" id="redeveur" name="redeveur" placeholder="Le nom du redeveur"/>
+            <li><label for="receveur">Receveur de la dette</label></li>
+            <input type="text" id="receveur" name="receveur" placeholder="Le nom du receveur"/>
 
         <li><label for="typologie">Sélectionnez la typologie de dette correspondante</label></li>
                 <select name="typologie" id="typologie">
+                    <optgroup label="Fast-food">
+                        <option value="burger">Burger</option>
+                        <option value="sandwich">Sandwich</option>
+                        <option value="grec">Grec</option>
+                        <option value="bagel">Bagel</option>
+                    </optgroup>
+                    <optgroup label="Boissons">
+                        <option value="chaud">Boissons chaudes</option>
+                        <option value="jus">Jus/Smoothies/Bubble Tea</option>
+                        <option value="apero">Apéro</option>
+                        <option value="alcool fort">Alcools forts</option>
+                        <option value="softs">Softs</option>
+                        <option value="biere">Bières/Cocktails/Vins</option>
+                    </optgroup>
+                    <optgroup label="Africain">
+                        <option value="oriental">Oriental</option>
+                        <option value="libanais">Libanais</option>
+                    </optgroup>
+                    <optgroup label="Américain">
+                        <option value="mexicain">Mexicain</option>
+                        <option value="canadien">Canadien</option>
+                        <option value="etats unis">Etats Unien</option>
+                    </optgroup>
+                    <optgroup label="Européen">
+                        <option value="italien">Italien</option>
+                        <option value="francais">Français</option>
+                        <option value="espagnol">Espagnol</option>
+                        <option value="creperie">Creperie</option>
+                    </optgroup>
+                    <optgroup label="Asiatique">
+                        <option value="chinois">Chinois</option>
+                        <option value="thailandais">Thaïlandais</option>
+                        <option value="coreen">Coréen</option>
+                        <option value="japonais">Japonais</option>
+                        <option value="indien">Indien</option>
+                    </optgroup>
+                    <optgroup label="Sucré">
+                        <option value="patisseries">Patisseries</option>
+                        <option value="glaces">Glaces</option>
+                    </optgroup>
                     <option value="salade">Salade</option>
-                    <option value="burger">Burger</option>
-                    <option value="asiatique">Asiatique</option>
-                    <option value="pizza">Pizza</option>
-                    <option value="sandwich">Sandwich</option>
-                    <option value="desserts">Desserts</option>
-                    <option value="pâtes">Pâtes</option>
                     <option value="petit-dejeuner">Petit-déjeuner</option>
-                    <option value="apéro">Apéro</option>
-                    <option value="alcool fort">Alcool fort</option>
-                    <option value="softs">Softs</option>
-                    <option value="biere">Bières/Cocktails/Vins</option>
-                    <option value="sushis">Sushis</option>
                 </select>
+        <li><label for="echeance">Veuillez renseigner l'échance du remboursement</label></li>
+        <input type="date" />
     </form>
+    <br>
+    <button>Envoyer la dette</button>
 </div>
 {% endblock %}
