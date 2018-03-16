@@ -7,15 +7,14 @@
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
-
-<div class="example-wrapper">
+    <div class="example-wrapper">
     <h1>Bonjour {{ controller_name }}!</h1>
 
     <p>Veuillez compléter le formulaire pour ajouter une nouvelle dette</p><br>
 
     <form method="post" action="">
             <li><label for="receveur">Receveur de la dette</label></li>
-            <input type="text" id="receveur" name="receveur" placeholder="Le nom du receveur"/>
+            <input type="search" id="receveur" name="receveur" placeholder="Le nom du receveur"/>
 
         <li><label for="typologie">Sélectionnez la typologie de dette correspondante</label></li>
                 <select name="typologie" id="typologie">
