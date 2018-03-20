@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class AccueilController extends Controller
 {
     /**
-     * @Route("/accueil", name="accueil")
+     * @Route("/", name="accueil")
      */
     public function index()
     {
@@ -17,4 +17,5 @@ class AccueilController extends Controller
             'path' => 'src/Controller/AccueilController.php',
         ]);
     }
+
 }
