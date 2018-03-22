@@ -6,6 +6,7 @@ security:
                     admin: { password: admin, roles: 'ROLE_ADMIN' }
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
+        App\Entity\User: bcrypt
     firewalls:
      dev:
                 pattern: ^/(_(profiler|wdt)|css|images|js)/
