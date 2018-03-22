@@ -1,9 +1,6 @@
 <?php
-
 namespace App\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DebtRepository")
  */
@@ -12,38 +9,41 @@ class Debt
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
+     * @ORM\ManyToOne(targetEntity="lafrite\src\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * @ORM\Column(type="integer")
      */
-    protected $id_debt;
-
+    protected $id;
 
     /**
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="giver", type="integer", length=255)
      */
-    protected $id_user_giver;
+    protected $giver;
 
     /**
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="receiver", type="integer")
      */
-    protected $id_user_receiver;
+    protected $receiver;
 
     /**
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="string")
+     * @ORM\Column(name="nameDebtType", type="string"))
      */
-    protected $name_debt_type;
+    protected $nameDebtType;
 
     /**
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="date")
+     * @ORM\Column(name="debtDeadline", type="date")
      */
-    protected $debt_deadline;
+    protected $debtDeadline;
 
     /**
-     * @ORM\GeneratedValue()
      * @ORM\Column(type="date")
      */
     protected $date;
+    public function __construct()
+    {
+        $this->date = new \Datetime();
+    }
+
+
 }
