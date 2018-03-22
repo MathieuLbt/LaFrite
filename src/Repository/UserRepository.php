@@ -20,7 +20,7 @@ class UserRepository extends ServiceEntityRepository
     }
 
     /*
-    public function findBySomething($value)
+    public function updateProfileState($value)
     {
         return $this->createQueryBuilder('u')
             ->where('u.something = :value')->setParameter('value', $value)
