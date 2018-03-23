@@ -19,7 +19,7 @@ class UserFixtures extends Fixture
             $user->setMail('user@user.com'.$i);
             $user->setPhotoUser('photo'.$i);
             $user->setSubscribeDate('');
-            $user->setProfilState('jesaispasencore'.$i);
+            $user->setProfilState($profilState);
             $manager->persist($user);
             $i++;
         }

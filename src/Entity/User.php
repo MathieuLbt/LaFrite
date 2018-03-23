@@ -1,52 +1,52 @@
 <?php
 
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\Entity
+ * @UniqueEntity(fields="email", message="Email already taken")
+ * @UniqueEntity(fields="username", message="Username already taken")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
-     * @ORM\ManyToOne(targetEntity="Debt")
-     * @ORM\JoinColumn(name="debt_id", referencedColumnName="id")
      * @ORM\Column(type="integer")
      */
     protected $id;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
-    protected $username;
-
+    private $email;
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank()
      */
-    protected $password;
-
+    private $username;
     /**
-     * @ORM\Column(type="string")
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4096)
      */
-    protected $mail;
-
+    private $plainPassword;
     /**
-     * @ORM\Column(type="string")
+     * The below length depends on the "algorithm" you use for encoding
+     * the password, but this works well with bcrypt.
+     *
+     * @ORM\Column(type="string", length=64)
      */
-    protected $photoUser;
+    private $password;
 
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    protected $subscribeDate;
 
-    /**
-     * @ORM\Column(type="string")
-     */
-    protected $profilState;
 
     /**
      * @return mixed
@@ -80,17 +80,18 @@ class User
         $this->username = $username;
     }
 
-    /**
-     * @return mixed
-     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
+    }
     public function getPassword()
     {
         return $this->password;
     }
-
-    /**
-     * @param mixed $password
-     */
     public function setPassword($password)
     {
         $this->password = $password;
@@ -99,68 +100,61 @@ class User
     /**
      * @return mixed
      */
-    public function getMail()
+    public function getEmail()
     {
-        return $this->mail;
+        return $this->email;
+    }
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+  
+
+
+    /**
+     * Returns the roles granted to the user.
+     *
+     * <code>
+     * public function getRoles()
+     * {
+     *     return array('ROLE_USER');
+     * }
+     * </code>
+     *
+     * Alternatively, the roles might be stored on a ``roles`` property,
+     * and populated in any number of different ways when the user object
+     * is created.
+     *
+     * @return (Role|string)[] The user roles
+     */
+    public function getRoles()
+    {
+        // TODO: Implement getRoles() method.
     }
 
     /**
-     * @param mixed $mail
+     * Returns the salt that was originally used to encode the password.
+     *
+     * This can return null if the password was not encoded using a salt.
+     *
+     * @return string|null The salt
      */
-    public function setMail($mail)
+    public function getSalt()
     {
-        $this->mail = $mail;
+        // TODO: Implement getSalt() method.
     }
 
     /**
-     * @return mixed
+     * Removes sensitive data from the user.
+     *
+     * This is important if, at any given point, sensitive information like
+     * the plain-text password is stored on this object.
      */
-    public function getPhotoUser()
+    public function eraseCredentials()
     {
-        return $this->photoUser;
+        // TODO: Implement eraseCredentials() method.
     }
-
-    /**
-     * @param mixed $photoUser
-     */
-    public function setPhotoUser($photoUser)
-    {
-        $this->photoUser = $photoUser;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSubscribeDate()
-    {
-        return $this->subscribeDate;
-    }
-
-    /**
-     * @param mixed $subscribeDate
-     */
-    public function setSubscribeDate()
-    {
-        $this->subscribeDate = new \DateTime("now");
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getProfilState()
-    {
-        return $this->profilState;
-    }
-
-    /**
-     * @param mixed $profilState
-     */
-    public function setProfilState($profilState)
-    {
-        $this->profilState = $profilState;
-    }
-
-
 }
 
 
