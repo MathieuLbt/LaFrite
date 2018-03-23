@@ -1,31 +1,43 @@
 <?php
 
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @ORM\Entity
+ * @UniqueEntity(fields="email", message="Email already taken")
+ * @UniqueEntity(fields="username", message="Username already taken")
  */
-class User
+class User implements UserInterface
 {
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
+     * @ORM\Id
      * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    protected $id;
-
+    private $id;
 
     /**
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
-    protected $username;
+    private $email;
 
     /**
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     */
+    private $username;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4096)
      */
     private $plainPassword;
 
@@ -36,18 +48,6 @@ class User
      * @ORM\Column(type="string", length=64)
      */
     private $password;
-
-    /**
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="string")
-     */
-    protected $mail_user;
-
-    /**
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="blob")
-     */
-    protected $photo_user;
 
     /**
      * @return mixed
@@ -64,8 +64,6 @@ class User
     {
         $this->id = $id;
     }
-
-    // other properties and methods
 
     public function getEmail()
     {
@@ -107,42 +105,36 @@ class User
         $this->password = $password;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getMailUser()
-    {
-        return $this->mail_user;
-    }
-
-    /**
-     * @param mixed $mail_user
-     */
-    public function setMailUser($mail_user)
-    {
-        $this->mail_user = $mail_user;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPhotoUser()
-    {
-        return $this->photo_user;
-    }
-
-    /**
-     * @param mixed $photo_user
-     */
-    public function setPhotoUser($photo_user)
-    {
-        $this->photo_user = $photo_user;
-    }
-
     public function getSalt()
     {
         // The bcrypt and argon2i algorithms don't require a separate salt.
         // You *may* need a real salt if you choose a different encoder.
         return null;
+    }
+
+    /**
+     * Returns the roles granted to the user.
+     *
+     * <code>
+     * public function getRoles()
+     * {
+     *     return array('ROLE_USER');
+     * }
+     * </code>
+     *
+     * Alternatively, the roles might be stored on a ``roles`` property,
+     * and populated in any number of different ways when the user object
+     * is created.
+     *
+     * @return (Role|string)[] The user roles
+     */
+    public function getRoles()
+    {
+        // TODO: Implement getRoles() method.
+    }
+
+    public function eraseCredentials()
+    {
+        // TODO: Implement eraseCredentials() method.
     }
 }

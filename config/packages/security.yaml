@@ -1,0 +1,28 @@
+security:
+    providers:
+        in_memory:
+            memory:
+                users:
+                    admin: { password: admin, roles: 'ROLE_ADMIN' }
+    encoders:
+        Symfony\Component\Security\Core\User\User: plaintext
+        App\Entity\User: bcrypt
+    firewalls:
+     dev:
+                pattern: ^/(_(profiler|wdt)|css|images|js)/
+                security: false
+     main:
+                        anonymous: true
+                        form_login:
+                           login_path: login
+                           check_path: login
+                           csrf_parameter: _csrf_security_token
+                           csrf_token_id: a_private_string
+                        logout:
+                            path: /logout
+                            target: /
+                        pattern:    ^/
+
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: ROLE_ADMIN }
