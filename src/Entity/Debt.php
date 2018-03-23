@@ -8,18 +8,10 @@ class Debt
 {
     /**
      * @ORM\Id()
-<<<<<<< HEAD
      * @ORM\GeneratedValue(strategy="AUTO")
      * @ORM\Column(type="integer")
      */
     protected $id;
-
-=======
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
-     */
-    protected $id;
->>>>>>> master
 
     /**
      * @ORM\Column(name="giver", type="integer", length=255)
@@ -45,16 +37,12 @@ class Debt
      * @ORM\Column(type="date")
      */
     protected $date;
-<<<<<<< HEAD
 
-=======
->>>>>>> master
     public function __construct()
     {
         $this->date = new \Datetime();
     }
 
-<<<<<<< HEAD
     /**
      * @return mixed
      */
@@ -151,7 +139,3 @@ class Debt
         $this->date = $date;
     }
 }
-=======
-
-}
->>>>>>> master
