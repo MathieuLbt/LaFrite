@@ -109,7 +109,7 @@ class User implements UserInterface
         $this->email = $email;
     }
 
-  
+
 
 
     /**
