@@ -19,13 +19,19 @@ class DebtType extends AbstractType
             ->add('receiver', TextType::class, array('required'=>false))
             ->add('nameDebtType', ChoiceType::class, array(
                 'choices' => array(
-                    'Main Statuses' => array(
-                        'Yes' => 'stock_yes',
-                        'No' => 'stock_no',
+                    'Fast-food' => array(
+                        'Burger' => 'Burger',
+                        'Sandwich' => 'Sandwich',
+                        'Grec' => 'Grec',
+                        'Bagel' => 'Bagel',
                     ),
-                    'Out of Stock Statuses' => array(
-                        'Backordered' => 'stock_backordered',
-                        'Discontinued' => 'stock_discontinued',
+                    'Boissons' => array(
+                        'Boissons chaudes' => 'Boissons chaudes',
+                        'Bubble tea' => 'Bubble tea',
+                        'Apéro' => 'Apéro',
+                        'Alcools forts' => 'Alcools forts',
+                        'Softs' => 'Softs',
+                        'Bières/Cocktails/Vins' => 'Bières/Cocktails/Vins',
                     ),
                 ),
 
