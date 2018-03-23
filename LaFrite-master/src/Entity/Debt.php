@@ -12,22 +12,22 @@ class Debt
      * @ORM\ManyToOne(targetEntity="lafrite\src\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="string")
      */
     protected $id;
 
     /**
-     * @ORM\Column(name="giver", type="integer", length=255)
+     * @ORM\Column(name="giver", type="string", length=255)
      */
     protected $giver;
 
     /**
-     * @ORM\Column(name="receiver", type="integer")
+     * @ORM\Column(name="receiver", type="string")
      */
     protected $receiver;
 
     /**
-     * @ORM\Column(name="nameDebtType", type="string"))
+     * @ORM\Column(name="nameDebtType", type="string")
      */
     protected $nameDebtType;
 
