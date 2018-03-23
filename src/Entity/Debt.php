@@ -9,9 +9,6 @@ class Debt
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
-     * @ORM\ManyToOne(targetEntity="lafrite\src\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * @ORM\Column(type="integer")
      */
     protected $id;
