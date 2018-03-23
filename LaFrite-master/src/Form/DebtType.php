@@ -33,6 +33,27 @@ class DebtType extends AbstractType
                         'Softs' => 'Softs',
                         'Bières/Cocktails/Vins' => 'Bières/Cocktails/Vins',
                     ),
+
+                    'Européen' => array(
+                        'Italien' => 'Italien',
+                        'Français' => 'Français',
+                        'Espagnol' => 'Espagnol',
+                        'Crêperie' => 'Crêperie',
+                    ),
+
+                    'Asiatique' => array(
+                        'Chinois' => 'Chinois',
+                        'Thaïlandais' => 'Thaïlandais',
+                        'Coréen' => 'Coréen',
+                        'Japonais' => 'Japonais',
+                        'Indien' => 'Indien',
+                    ),
+
+                    'Sucré' => array(
+                        'Patisseries' => 'Patisseries',
+                        'Glaces' => 'Glaces',
+                    ),
+
                 ),
 
             ))
