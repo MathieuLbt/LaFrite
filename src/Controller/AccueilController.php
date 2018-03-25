@@ -8,12 +8,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class AccueilController extends Controller
 {
     /**
-     * @Route("/index", name="accueil")
+     * @Route("/", name="accueil")
      */
     public function index()
     {
         return $this->json([
-            'message' => 'Welcome ',
+            'message' => 'Welcome to your new controller!',
             'path' => 'src/Controller/AccueilController.php',
         ]);
     }

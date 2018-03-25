@@ -9,11 +9,11 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity(fields="email", message="Email already taken")
  * @UniqueEntity(fields="username", message="Username already taken")
  */
-class User implements UserInterface
+class User implements UserInterface, \Serializable
 {
     /**
      * @ORM\Id()
@@ -50,6 +50,17 @@ class User implements UserInterface
      * @ORM\Column(name="is_active", type="boolean")
      */
     private $isActive;
+
+    /**
+     * @var array
+     */
+    private $roles;
+
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isAdmin = false;
 
     public function __construct()
     {
@@ -114,12 +125,14 @@ class User implements UserInterface
     {
         return $this->email;
     }
+
+    /**
+     * @param mixed $email
+     */
     public function setEmail($email)
     {
         $this->email = $email;
     }
-
-  
 
 
     /**
@@ -140,8 +153,44 @@ class User implements UserInterface
      */
     public function getRoles()
     {
-        // TODO: Implement getRoles() method.
+        if ($this->getisAdmin()) {
+            return ['ROLE_ADMIN'];
+        }
+
+        return ['ROLE_USER'];
     }
+    /**
+     * @return mixed
+     */
+    public function getisActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param mixed $isActive
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getisAdmin()
+    {
+        return $this->isAdmin;
+    }
+
+    /**
+     * @param mixed $isAdmin
+     */
+    public function setIsAdmin($isAdmin)
+    {
+        $this->isAdmin = $isAdmin;
+    }
+
 
     /**
      * Returns the salt that was originally used to encode the password.
@@ -152,7 +201,7 @@ class User implements UserInterface
      */
     public function getSalt()
     {
-        // TODO: Implement getSalt() method.
+        return null;
     }
 
     /**
@@ -163,7 +212,7 @@ class User implements UserInterface
      */
     public function eraseCredentials()
     {
-        // TODO: Implement eraseCredentials() method.
+        $this->setPlainPassword(null);
     }
     /** @see \Serializable::serialize() */
     public function serialize()
@@ -189,7 +238,6 @@ class User implements UserInterface
             ) = unserialize($serialized);
     }
 }
-
 
 
 
