@@ -125,10 +125,15 @@ class User implements UserInterface, \Serializable
     {
         return $this->email;
     }
+
+    /**
+     * @param mixed $email
+     */
     public function setEmail($email)
     {
         $this->email = $email;
     }
+
 
     /**
      * Returns the roles granted to the user.
