@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TEST</title>
+</head>
+        <body>
+
+
+                <h1 style="text-align:center; margin-top:150px; font-family: sans-serif;">ah oue oue</h1>
+                <img src="http://www.memecenter.fr/files/2014/09/dolan-coucou-toi-derriere-ton-ecran.jpg" alt=""/>
+
+
+        <table>
+            {% post in posts %}
+                <tr>
+                    {{% post.id is odd %}
+                        <td style="background-color: grey">
+                            {{% if not post.isPublished %}}
+                                <span style="color: red">{{ post.title }}</span>
+                            {{% else %}}
+                                {{ post.title }}
+                            {{% endif %}}
+                        </td>
+                </tr>
+        </table>
+
+        </body>
+</html>
