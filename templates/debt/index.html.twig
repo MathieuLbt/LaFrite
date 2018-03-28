@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+
+{% block body %}
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        {{ form_start(form) }}
+        {{ form_row(form.giver) }}
+        {{ form_row(form.receiver) }}
+        {{ form_row(form.nameDebtType) }}
+        {{ form_row(form.debtDeadline) }}
+        <button type="submit">Send the debt</button>
+        {{ form_end(form) }}
+    </body>
+    </html>
+{% endblock %}

@@ -17,13 +17,13 @@
                                 </label>
                                 <input type="password" id="password" name="_password" class="form-control" />
                             </div>
-                            <input type="hidden" name="_target_path" value="{{ path('accueil') }}" />
+                            <input type="hidden" name="_target_path" value="{{ path('home') }}" />
                             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                             <div class="form-group text-right">
                                 <button type="submit" class="btn btn-primary btn-block">Login</button>
                             </div>
                             <div class="form-group text-center">
-                                <span class="text-muted">Don't have an account?</span> <a href="{{ 'register' }}">Create one</a>
+                                <span class="text-muted">Don't have an account?</span> <a href="{{ path('register') }}">Create one</a>
                             </div>
                         </form>
                     </div>
@@ -55,7 +55,7 @@
                             </div>
                             {{ form_end(form) }}
                             <div class="form-group text-center">
-                                <span class="text-muted">Already have an account?</span> <a href="{{ 'login' }}">Go to log</a>
+                                <span class="text-muted">Already have an account?</span> <a href="{{ path('login') }}">Go to log</a>
                             </div>
                         </form>
                     </div>

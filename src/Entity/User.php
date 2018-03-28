@@ -56,6 +56,7 @@ class User implements UserInterface, \Serializable
      */
     private $roles;
 
+
     /**
      * @ORM\Column(type="boolean")
      */
@@ -203,6 +204,12 @@ class User implements UserInterface, \Serializable
         return null;
     }
 
+    /**
+     * Removes sensitive data from the user.
+     *
+     * This is important if, at any given point, sensitive information like
+     * the plain-text password is stored on this object.
+     */
     public function eraseCredentials()
     {
         $this->setPlainPassword(null);
@@ -231,3 +238,7 @@ class User implements UserInterface, \Serializable
             ) = unserialize($serialized);
     }
 }
+
+
+
+
