@@ -12,7 +12,7 @@ class Debt
      * @ORM\ManyToOne(targetEntity="lafrite\src\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="integer")
      */
     protected $id;
 
