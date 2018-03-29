@@ -19,7 +19,7 @@ class PostRepository extends ServiceEntityRepository
         parent::__construct($registry, Post::class);
     }
 
-    /*
+
     public function findBySomething($value)
     {
         return $this->createQueryBuilder('p')
@@ -28,7 +28,11 @@ class PostRepository extends ServiceEntityRepository
             ->setMaxResults(10)
             ->getQuery()
             ->getResult()
-        ;
+            ;
     }
-    */
+    public function getBlog(){
+        return $this->createQueryBuilder("post")
+            ->getQuery()
+            ->getResult();
+    }
 }

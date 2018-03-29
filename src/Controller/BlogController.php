@@ -2,63 +2,37 @@
 
 namespace App\Controller;
 
-
 use App\Entity\Post;
-use App\Form\PostType;
 use App\Repository\PostRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class BlogController extends Controller
 {
-    /**
-     * @Route("/", name="blog")
-     */
-    public function index()
-    {
-        return new Response('
-            <html>
-                <body>
-                    <h1 style="text-align:center; margin-top:150px; font-family: sans-serif;">Welcome to your new controller!</h1>
-    
-    </body>
-        </html>');
-    }
+
 
     /**
      * @Route("/blog", name="blog")
      */
-    public function blog(PostRepository $postRepository)
+    public function blog(PostRepository $PostRepository)
     {
-        $posts = $postRepository->findAll();
+        $getPost = $PostRepository->getBlog();
 
-
-
-
-        return $this->render('blog.html.twig', [
-            'posts' => $posts,
-        ]);
+        return $this->render('blog/blog.html.twig', array("post" => $getPost));
     }
-    /**
-     * @Route("/blog/post/new", name="new_blog_post")
-     */
-    public function newPost(Request $request)
 
+   /**
+     * @Route("/blog/{id}", name="blogId")
+     */
+    public function blogId(Post $post)
     {
-        $posts = new Post();
 
-        $form = $this->createForm(PostType::class, $posts);
-
-
-        return $this->render('news_blog_post.html.twig', [
-            'form' => $form->createView(),
-        ]);
+        return $this->render(
+            'blog/blog.html.twig', array("post" => $post));
     }
-    /**
-     * @Route("/admin", name="admin")
-     */
-
-
 }
+
+
+
