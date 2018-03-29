@@ -73,7 +73,7 @@
       <file leaf-file-name="Debt.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LaFrite/src/Entity/Debt.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="492">
+            <state relative-caret-position="510">
               <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding />
             </state>
@@ -254,6 +254,7 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="1" />
     <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="956" />
@@ -390,15 +391,15 @@
       <workItem from="1521712539812" duration="641000" />
       <workItem from="1521714198549" duration="4654000" />
       <workItem from="1522314914854" duration="4755000" />
-      <workItem from="1522327303660" duration="6197000" />
+      <workItem from="1522327303660" duration="6564000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37229000" />
+    <option name="totallyTimeSpent" value="37596000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="956" extended-state="6" />
+    <frame x="1" y="23" width="1680" height="956" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13452381" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -592,7 +593,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LaFrite/src/Entity/Debt.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="492">
+        <state relative-caret-position="510">
           <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding />
         </state>
