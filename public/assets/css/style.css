@@ -708,11 +708,12 @@ section.search .search-result {
     color: #999;
 }
 
-.form-control {
+.form-control, #user_username, #user_email, #user_plainPassword_first, #user_plainPassword_second {
     border-radius: 0;
     height: 40px;
 }
-.form-control:focus {
+
+.form-control:focus, #user_username:focus, #user_email:focus, #user_plainPassword_first:focus, #user_plainPassword_second:focus {
     border-color: #989898;
     box-shadow: 0 1px 2px #ddd;
 }
@@ -1131,12 +1132,12 @@ section.search .search-result {
     font-size: 12px;
     margin-top: -3px;
 }
-.form-group .form-control {
+.form-group .form-control, #user_username, #user_email, #user_plainPassword_first, #user_plainPassword_second {
     border-radius: 0;
     font-family: 'Lato';
     font-weight: 300;
 }
-.form-group .form-control:focus {
+.form-group .form-control:focus, #user_username:focus, #user_email:focus, #user_plainPassword_first:focus, #user_plainPassword_second:focus {
     border-color: #989898;
     box-shadow: 0 1px 2px #ddd;
 }
@@ -3872,9 +3873,10 @@ blockquote {
     position: relative;
 }
 .featured-author .featured-author-cover .badges {
-    position: absolute;
+    position: relative;
+    float:right;
     top: 10px;
-    left: 10px;
+    right: 10px;
 }
 .featured-author .featured-author-cover .badges .badge-item {
     display: inline-block;
@@ -3885,6 +3887,11 @@ blockquote {
     font-size: 12px;
     background-color: #191E21;
     letter-spacing: 1px;
+}
+
+
+.badge-item a{
+    color:#ffffff;
 }
 .featured-author .featured-author-cover .featured-author-center {
     position: absolute;
@@ -3909,7 +3916,7 @@ blockquote {
 }
 .featured-author .featured-author-cover .featured-author-info .name {
     font-size: 18px;
-    color: #fff;
+    color: #F73F52;
     margin: 0;
     margin-top: 10px;
 }
