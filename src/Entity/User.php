@@ -49,7 +49,7 @@ class User implements UserInterface, \Serializable
     /**
      * @ORM\Column(name="is_active", type="boolean")
      */
-    private $isActive;
+    private $isActive =true ;
 
     /**
      * @var array
@@ -62,11 +62,15 @@ class User implements UserInterface, \Serializable
      */
     private $isAdmin = false;
 
+    /**
+     * @ORM\Column(type="date")
+     */
+    protected $dateSubscription;
+
+
     public function __construct()
     {
-        $this->isActive = true;
-        // may not be needed, see section on salt below
-        // $this->salt = md5(uniqid('', true));
+        $this->dateSubscription = new \Datetime();
     }
 
     /**
@@ -236,6 +240,22 @@ class User implements UserInterface, \Serializable
             // see section on salt below
             // $this->salt
             ) = unserialize($serialized);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateSubscrition()
+    {
+        return $this->dateSubscrition;
+    }
+
+    /**
+     * @param mixed $dateSubscrition
+     */
+    public function setDateSubscrition($dateSubscrition)
+    {
+        $this->dateSubscrition = $dateSubscrition;
     }
 }
 
