@@ -54,6 +54,8 @@ class DebtType extends AbstractType
                         'Glaces' => 'Glaces',
                     ),
 
+                    'Petit-déjeuner' => 'Petit-déjeuner',
+
                 ),
 
             ))
