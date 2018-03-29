@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <title>{% block title %}La Frite{% endblock %}</title>
     {% block stylesheets %}
         <link href="{{ asset('assets/scripts/bootstrap/bootstrap.min.css') }}" rel="stylesheet" />
         <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
@@ -14,7 +14,7 @@
 <div>
     {% block body %}{% endblock %}
     <header>
-        <figure><img src="{{ asset('img/frites.png')}}" alt=""></figure>
+        <img src="{{ asset('img/frites.png')}}" alt="">
         <h1>La Frite</h1>
 
         <div>
@@ -30,14 +30,9 @@
 
     </section>
 
-
-
-
-
     <footer>
 
         <p>2018 - ©la Barquette</p>
-
 
     </footer>
 </div>

@@ -9,19 +9,20 @@ class Debt
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
-     * @ORM\ManyToOne(targetEntity="lafrite\src\Entity\User")
      * @ORM\JoinColumn(nullable=false)
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="integer")
      */
     protected $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="lafrite\src\Entity\User")
      * @ORM\Column(name="giver", type="string", length=255)
      */
     protected $giver;
 
     /**
+     * @ORM\ManyToOne(targetEntity="lafrite\src\Entity\User")
      * @ORM\Column(name="receiver", type="string", length=255)
      */
     protected $receiver;
