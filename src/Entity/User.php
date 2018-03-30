@@ -60,28 +60,7 @@ class User implements UserInterface, \Serializable
      */
     private $isAdmin = false;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank()
-     * @Assert\Debt()
-     */
-    private $id_debt;
 
-    /**
-     * @return mixed
-     */
-    public function getIdDebt()
-    {
-        return $this->id_debt;
-    }
-
-    /**
-     * @param mixed $id_debt
-     */
-    public function setIdDebt($id_debt)
-    {
-        $this->id_debt = $id_debt;
-    }
     public function __construct()
     {
         $this->isActive = true;

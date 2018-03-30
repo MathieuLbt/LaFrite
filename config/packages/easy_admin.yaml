@@ -45,3 +45,17 @@ easy_admin:
                     - { property: 'receiver', label: 'Receiver' }
                     - { property: 'nameDebtType', label: 'DebtType' }
                     - { property: 'debtDeadline', label: 'Deadline' }
+        Post:
+            class: App\Entity\Post
+            label: 'POST'
+            list:
+                title: "%%entity_label%% List"
+                fields:
+                    - 'id'
+                    - { property: 'title', label: 'Title' }
+                    - { property: 'isPublished', label: 'Published', type: 'boolean' }
+            form:
+                fields:
+                    - { property: 'title', label: 'Title' }
+                    - { property: 'body', label: 'Description', type: 'ckeditor' }
+                    - { property: 'isPublished', label: 'Published' }
