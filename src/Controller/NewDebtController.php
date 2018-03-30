@@ -30,7 +30,7 @@ class NewDebtController extends Controller
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
             $request->getSession()->getFlashBag()->add('notice', 'Debt saved');
-            return $this->redirectToRoute('login');
+            return $this->redirectToRoute('profil');
         }
 
         return $this->render(

@@ -532,6 +532,7 @@ header.primary {
     left: 0;
     width: 100%;
     transition: all 0.5s;
+    border-bottom: 5px solid #F73F52;
     -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     -moz-transition: all 0.5s;
@@ -572,6 +573,7 @@ header.primary.up nav.menu .dropdown-menu .dropdown-menu {
 section {
     padding-top: 20px;
     padding-bottom: 40px;
+    margin-top:100px;
 }
 section.first {
     padding-top: 100px;
@@ -706,11 +708,12 @@ section.search .search-result {
     color: #999;
 }
 
-.form-control {
+.form-control, #user_username, #user_email, #user_plainPassword_first, #user_plainPassword_second, #debt_giver, #debt_receiver, #debt_nameDebtType, #debt_debtDeadline {
     border-radius: 0;
     height: 40px;
 }
-.form-control:focus {
+
+.form-control:focus, #user_username:focus, #user_email:focus, #user_plainPassword_first:focus, #user_plainPassword_second:focus, #debt_giver:focus, #debt_receiver:focus, #debt_nameDebtType:focus, #debt_debtDeadline:focus {
     border-color: #989898;
     box-shadow: 0 1px 2px #ddd;
 }
@@ -1129,12 +1132,12 @@ section.search .search-result {
     font-size: 12px;
     margin-top: -3px;
 }
-.form-group .form-control {
+.form-group .form-control, #user_username, #user_email, #user_plainPassword_first, #user_plainPassword_second, #debt_giver, #debt_receiver, #debt_nameDebtType, #debt_debtDeadline  {
     border-radius: 0;
     font-family: 'Lato';
     font-weight: 300;
 }
-.form-group .form-control:focus {
+.form-group .form-control:focus, #user_username:focus, #user_email:focus, #user_plainPassword_first:focus, #user_plainPassword_second:focus, #debt_giver:focus, #debt_receiver:focus, #debt_nameDebtType:focus, #debt_debtDeadline:focus {
     border-color: #989898;
     box-shadow: 0 1px 2px #ddd;
 }
@@ -3160,13 +3163,22 @@ footer.footer .tags li a:hover {
     border-color: #F73F52;
     color: #fff;
 }
-footer.footer .copyright {
+footer.footer {
     text-align: center;
-    margin-top: 70px;
     color: #848f9a;
     border-top: 1px solid #222;
-    padding-top: 35px;
+    padding-top: 20px;
     padding-bottom: 20px;
+    font-size: 12px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-top: 5px solid #F73F52;
+}
+
+.copyright{
+    text-align: center;
+    color: #848f9a;
     font-size: 12px;
     font-weight: 300;
     text-transform: uppercase;
@@ -3861,9 +3873,17 @@ blockquote {
     position: relative;
 }
 .featured-author .featured-author-cover .badges {
-    position: absolute;
+    position: relative;
+    float:right;
     top: 10px;
-    left: 10px;
+    right: 10px;
+}
+.badges2{
+    position:fixed;
+    float:right;
+    bottom: 10px;
+    right: 10px;
+
 }
 .featured-author .featured-author-cover .badges .badge-item {
     display: inline-block;
@@ -3875,6 +3895,24 @@ blockquote {
     background-color: #191E21;
     letter-spacing: 1px;
 }
+
+
+.badge-item a , .badge-item2 a{
+    color:#fff;
+}
+
+.badge-item2{
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 30px;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+    background-color: #F73F52;
+    letter-spacing: 1px;
+}
+
+
 .featured-author .featured-author-cover .featured-author-center {
     position: absolute;
     left: 50%;
@@ -3898,7 +3936,7 @@ blockquote {
 }
 .featured-author .featured-author-cover .featured-author-info .name {
     font-size: 18px;
-    color: #fff;
+    color: #F73F52;
     margin: 0;
     margin-top: 10px;
 }

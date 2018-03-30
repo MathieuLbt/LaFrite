@@ -1,25 +1,32 @@
 {% extends 'base.html.twig' %}
-{% form_theme form 'bootstrap_4_layout.html.twig' %}
-
-
 {% block body %}
-    <!doctype html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
-    </head>
-    <body>
-        {{ form_start(form) }}
-        {{ form_row(form.giver) }}
-        {{ form_row(form.receiver) }}
-        {{ form_row(form.nameDebtType) }}
-        {{ form_row(form.debtDeadline) }}
-        <button type="submit">Send the debt</button>
-        {{ form_end(form) }}
-    </body>
-    </html>
+<section class="login first grey">
+    <div class="container">
+        <div class="box-wrapper">
+            <div class="box box-border">
+                <div class="box-body">
+                    <h4>Nouvelle dette</h4>
+                    {{ form_start(form) }}
+                    <div class="form-group">
+                        {{ form_row(form.giver) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.receiver) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.nameDebtType) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.debtDeadline) }}
+                    </div>
+                    <div class="form-group text-right">
+                        <button class="btn btn-primary btn-block" type="submit">Send the debt</button>
+                    </div>
+                    {{ form_end(form) }}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

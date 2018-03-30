@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\DebtRepository")
@@ -9,21 +11,21 @@ class Debt
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
-     * @ORM\JoinColumn(nullable=false)
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * @ORM\Column(type="integer")
      */
     protected $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="lafrite\src\Entity\User")
-     * @ORM\Column(name="giver", type="string", length=255)
+     * Celui qui doit l'argent : débiteur
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="debts")
+     * @ORM\JoinColumn(name="giver", referencedColumnName="id", nullable=false)
      */
     protected $giver;
 
     /**
-     * @ORM\ManyToOne(targetEntity="lafrite\src\Entity\User")
-     * @ORM\Column(name="receiver", type="string", length=255)
+     * Celui qui reçoit l'argent : banquier
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="receivables")
+     * @ORM\JoinColumn(name="receiver", referencedColumnName="id", nullable=false)
      */
     protected $receiver;
 
