@@ -3,6 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Debt;
+use App\Entity\User;
+use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -16,8 +19,22 @@ class DebtType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('giver',TextType::class, array('required'=>false))
-            ->add('receiver', TextType::class, array('required'=>false))
+            ->add('giver',EntityType::class,[
+                'class' => User::class,
+                'query_builder' => function(EntityRepository $er){
+                    return $er->createQueryBuilder('u')
+                        ->orderBy('u.id', 'ASC');
+                },
+                'choice_label' => 'username'
+            ])
+            ->add('receiver', EntityType::class,[
+                'class' => User::class,
+                'query_builder' => function(EntityRepository $er){
+                    return $er->createQueryBuilder('u')
+                        ->orderBy('u.id', 'ASC');
+                },
+                'choice_label' => 'username'
+            ])
             ->add('nameDebtType', ChoiceType::class, array(
                 'choices' => array(
                     'Fast-food' => array(

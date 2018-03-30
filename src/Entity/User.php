@@ -33,10 +33,23 @@ class User implements UserInterface, \Serializable
      * @Assert\NotBlank()
      */
     private $username;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="Debt", mappedBy="receiver")
+     */
+    private $receivables;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Debt", mappedBy="giver")
+     */
+    private $debts;
+
     /**
      * @Assert\NotBlank()
      * @Assert\Length(max=4096)
      */
+
     private $plainPassword;
     /**
      * The below length depends on the "algorithm" you use for encoding
@@ -45,6 +58,8 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="string", length=64)
      */
     private $password;
+
+
 
     /**
      * @ORM\Column(name="is_active", type="boolean")
@@ -256,6 +271,38 @@ class User implements UserInterface, \Serializable
     public function setDateSubscrition($dateSubscrition)
     {
         $this->dateSubscrition = $dateSubscrition;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReceivables()
+    {
+        return $this->receivables;
+    }
+
+    /**
+     * @param mixed $receivables
+     */
+    public function setReceivables($receivables)
+    {
+        $this->receivables = $receivables;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDebts()
+    {
+        return $this->debts;
+    }
+
+    /**
+     * @param mixed $debts
+     */
+    public function setDebts($debts)
+    {
+        $this->debts = $debts;
     }
 }
 
