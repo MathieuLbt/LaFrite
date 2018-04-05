@@ -6,7 +6,7 @@
                 <div class="featured-author-inner">
                     <div class="featured-author-cover" style="background-color:#EDEDED">
                         <div class="badges">
-                            <div class="badge-item"><a href="{{ path('logout') }}">Se déconnecter</a></div>
+                            <div class="badge-item"><a href="{{ path('logout') }}">Log out</a></div>
                         </div>
                         <div class="featured-author-center">
                             <figure class="featured-author-picture">
@@ -14,14 +14,7 @@
                             </figure>
                             <div class="featured-author-info">
                                 <h2 class="name">{{ app.user.username }}</h2>
-                                <div class="desc"><div><b><i>Statut : {% if app.user.receivables|length + app.user.debts|length < 1 and app.user.dateSubscription < "now"|date("m/d/Y") %}
-                                            Noob
-                                        {% elseif app.user.receivables|length + app.user.debts|length < 2 %}
-                                            Crevard
-                                                {% else %}
-                                            pipi
-                                        {% endif %}
-                                            </i></b></div></div>
+                                <div class="desc"><div><b><i>{{ app.user.getstatut }}</i></b></div></div>
                             </div>
                         </div>
                     </div>
@@ -29,13 +22,13 @@
                         <div class="featured-author-count">
                             <div class="item">
                                 <a href="#">
-                                    <div class="name">- Dettes en cours -</div>
+                                    <div class="name">- Current debts -</div>
                                     <div class="value">{{ app.user.receivables|length + app.user.debts|length }}</div>
                                 </a>
                             </div>
                             <div class="item">
                                 <a href="#">
-                                    <div class="name">- Dettes archivées -</div>
+                                    <div class="name">- Old debts -</div>
                                     <div class="value">3,729</div>
                                 </a>
                             </div>
@@ -49,7 +42,7 @@
                     </div>
                     <div class="featured-author-cover">
                         <div class="badges2">
-                            <div class="badge-item2"><a href="{{ path('newdebt') }}">Créer une nouvelle dette</a></div>
+                            <div class="badge-item2"><a href="{{ path('newdebt') }}">Create a new debt</a></div>
                         </div>
                     </div>
                 </div>

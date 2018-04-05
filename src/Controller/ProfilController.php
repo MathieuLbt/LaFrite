@@ -19,6 +19,8 @@ class ProfilController extends Controller
         return $this->render('profil/index.html.twig', [
             'controller_name' => 'ProfilController',
         ]);
+
+
     }
 
 

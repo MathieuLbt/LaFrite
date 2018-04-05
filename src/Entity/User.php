@@ -153,17 +153,6 @@ class User implements UserInterface, \Serializable
         $this->email = $email;
     }
 
-    public function getStatut($statut)
-    {
-        if (isset($this->attributs[$nom]))
-        {
-            return 'noob';
-        }
-        elseif(isset($this->attributs[$nom]))
-        {
-            return 'crevard';
-        }
-    }
 
 
     /**
@@ -315,6 +304,27 @@ class User implements UserInterface, \Serializable
     public function setDebts($debts)
     {
         $this->debts = $debts;
+    }
+
+
+    public function getStatut()
+    {
+//dump($this->receivables);die;
+        $month = new \DateTime();
+        $month->modify('-30 days');
+
+        if (count($this->receivables ) . count($this->debts ) < 1 and $this->dateSubscription > $month)
+        {
+            return $this->statut = 'noob';
+        }
+        elseif (count($this->receivables ) < 1 and $this->dateSubscription < $month)
+        {
+            return $this->statut = 'radin';
+        }
+        else
+        {
+            return $this->statut = 'crevard';
+        }
     }
 }
 
