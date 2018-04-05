@@ -3,6 +3,7 @@
 
 namespace App\Entity;
 
+use App\Repository\DebtRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -313,6 +314,12 @@ class User implements UserInterface, \Serializable
         $month = new \DateTime();
         $month->modify('-30 days');
 
+        $year = new \DateTime();
+        $year->modify('-365 days');
+
+        $now = new \DateTime();
+
+
         if (count($this->receivables ) . count($this->debts ) < 1 and $this->dateSubscription > $month)
         {
             return $this->statut = 'noob';
@@ -321,10 +328,57 @@ class User implements UserInterface, \Serializable
         {
             return $this->statut = 'radin';
         }
+        elseif (count($this->receivables) > 10)
+        {
+           return $this->statut = 'généreux';
+        }
+        elseif (count($this->debts ) > 3)
+        {
+            return $this->statut = 'profiteur';
+        }
+        //        elseif (count($this->receivables ) < 1 and $this->dateSubscription < $month)
+//        {
+//            return $this->statut = 'fiable';
+//        }
+        elseif (count($this->debts ) > 30)
+        {
+            return $this->statut = 'fauché';
+        }
+//                elseif ($this->debtDeadline < $now and $this->isArchived == false)
+//        {
+//            return $this->statut = 'crevard';
+//        }
+        //        elseif (count($this->receivables ) < 1 and $this->dateSubscription < $month)
+//        {
+//            return $this->statut = 'pigeon';
+//        }
+        elseif (count($this->receivables ) > 50)
+        {
+            return $this->statut = 'dieu';
+        }
+                elseif (count($this->receivables ) > 25 and count($this->debts ) > 25 and $this->dateSubscription < $year)
+        {
+            return $this->statut = 'el padre';
+        }
         else
         {
-            return $this->statut = 'crevard';
+            return $this->statut = 'gars sûr';
         }
+    }
+
+    public function getAllDebtsByDate()
+    {
+        $all = array_merge($this->receivables->toArray(), $this->debts->toArray());
+
+        $all = array_filter($all, function(Debt $debt) {
+            return ! $debt->getisArchived();
+        });
+
+        usort($all, function(Debt $a, Debt $b) {
+            return $a->getDebtDeadline() > $b->getDebtDeadline() ? 1 : -1;
+        });
+
+        return $all;
     }
 }
 
