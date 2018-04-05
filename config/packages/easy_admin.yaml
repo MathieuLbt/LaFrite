@@ -18,13 +18,15 @@ easy_admin:
                     - 'id'
                     - { property: 'email', label: 'Email' }
                     - { property: 'username', label: 'Username' }
+                    - { property: 'debts', label: 'Debts' }
+                    - { property: 'receivables', label: 'Receivables' }
                     - { property: 'isActive', label: 'Active', type: 'boolean' }
                     - { property: 'isAdmin', label: 'Admin', type: 'boolean' }
             form:
                 fields:
                 - { property: 'email', type: 'email', label: 'Email' }
                 - { property: 'username', label: 'Username' }
-                - { property: 'plainPassword', label: 'Password', type: 'password' }
+                - { property: 'plainPassword', label: 'Password' }
                 - { property: 'isActive', label: 'Active' }
                 - { property: 'isAdmin', label: 'Admin' }
         Debt:

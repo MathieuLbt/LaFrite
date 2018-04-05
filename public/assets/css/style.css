@@ -3799,9 +3799,15 @@ blockquote {
     width: 200px;
     height: 20px;
 }
-.video-list li a .desc .author {
+.video-list li a  .author {
     display: block;
     color: #999;
+    margin-top: 3px;
+}
+
+.desc{
+    display: block;
+    color:#000000;
     margin-top: 3px;
 }
 .video-list li a .desc .author.loading {
@@ -3940,10 +3946,16 @@ blockquote {
     margin: 0;
     margin-top: 10px;
 }
-.featured-author .featured-author-cover .featured-author-info .desc {
+.featured-author .featured-author-cover .featured-author-info {
     font-size: 12px;
     margin-top: 3px;
     color: #ddd;
+}
+
+.desc{
+    font-size: 12px;
+    margin-top: 3px;
+    color:#000000;
 }
 .featured-author .featured-author-body {
     box-shadow: 0 0 3px #ddd;
@@ -3963,10 +3975,10 @@ blockquote {
 }
 .featured-author .featured-author-body .featured-author-count .item {
     float: left;
-    width: calc(100% / 3);
-    width: -webkit-calc(100% / 3);
-    width: -moz-calc(100% / 3);
-    width: -o-calc(100% / 3);
+    width: calc(100% / 2);
+    width: -webkit-calc(100% / 2);
+    width: -moz-calc(100% / 2);
+    width: -o-calc(100% / 2);
     text-align: center;
     padding: 5px 0;
     border-right: 1px solid #f2f2f2;

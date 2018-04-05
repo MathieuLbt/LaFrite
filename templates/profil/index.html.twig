@@ -6,15 +6,15 @@
                 <div class="featured-author-inner">
                     <div class="featured-author-cover" style="background-color:#EDEDED">
                         <div class="badges">
-                            <div class="badge-item"><a href="{{ path('logout') }}">Se déconnecter</a></div>
+                            <div class="badge-item"><a href="{{ path('logout') }}">Log out</a></div>
                         </div>
                         <div class="featured-author-center">
                             <figure class="featured-author-picture">
-                                <img src={{ asset('assets/img/fplambda.jpeg') }} alt="photoUser" />
+                                <img src={{ asset('assets/img/profilephoto.png') }} alt="photoUser" />
                             </figure>
                             <div class="featured-author-info">
                                 <h2 class="name">{{ app.user.username }}</h2>
-                                <div class="desc">@JohnDoe</div>
+                                <div class="desc"><div><b><i>{{ app.user.getstatut }}</i></b></div></div>
                             </div>
                         </div>
                     </div>
@@ -22,35 +22,47 @@
                         <div class="featured-author-count">
                             <div class="item">
                                 <a href="#">
-                                    <div class="name">- Dettes en cours -</div>
-                                    <div class="value">208</div>
-                                </a>
-                            </div>
-                            <div class="item">
-                                <a href="#">
-                                    <div class="name">- Dettes archivés -</div>
-                                    <div class="value">3,729</div>
-                                </a>
-                            </div>
-                            <div class="item">
-                                <a href="#">
-                                    <div class="icon">
-                                        <div>More</div>
-                                        <i class="ion-chevron-right"></i>
+                                    <div class="name">- Current debts -</div>
+                                    <div class="value">{{ app.user.receivables|length + app.user.debts|length }}
                                     </div>
                                 </a>
                             </div>
-                        </div>
-                        <div class="featured-author-quote">
-                            "Eur costrict mobsa undivani krusvuw blos andugus pu aklosah"
+                            <div class="item">
+                                <a href="#">
+                                    <div class="name">- Old debts -</div>
+                                    <div class="value"></div>
+                                </a>
+                            </div>
                         </div>
                         <div class="featured-author-footer">
-                            <a href="#">See All Authors</a>
+                            <table class="featured-author-count">
+                                <thead>
+                                <tr >
+                                    <th class="text-left">Deadline</th>
+                                    <th class="text-left">A rembourser :</th>
+                                    <th class="text-left">Par :</th>
+                                    <th class="text-left">Pour :</th>
+                                    <th class="text-left"></th>
+                                </tr>
+                                </thead>
+                                <tbody class="table-hover">
+                                {% for debt in app.user.allDebtsByDate %}
+                                    <tr>
+                                        <td class="text-left">{{ debt.debtDeadline|date("d/m/Y") }}</td>
+                                        <td class="text-left">{{ debt.nameDebtType }}</td>
+                                        <td class="text-left">{{ debt.giver.username }}</td>
+                                        <td class="text-left">{{ debt.receiver.username }}</td>
+                                        <td><a class="text-left"><a href="{{ path('archived', {id: debt.id} ) }}">Archiver</a></td>
+
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <div class="featured-author-cover">
                         <div class="badges2">
-                            <div class="badge-item2"><a href="{{ path('newdebt') }}">Créer une nouvelle dette</a></div>
+                            <div class="badge-item2"><a href="{{ path('newdebt') }}">Create a new debt</a></div>
                         </div>
                     </div>
                 </div>
