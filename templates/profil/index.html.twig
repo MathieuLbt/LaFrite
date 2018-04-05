@@ -34,7 +34,7 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="featured-author-footer">
+                        <div class="featured-author-count">
                             <table class="featured-author-count">
                                 <thead>
                                 <tr >
@@ -52,7 +52,7 @@
                                         <td class="text-left">{{ debt.nameDebtType }}</td>
                                         <td class="text-left">{{ debt.giver.username }}</td>
                                         <td class="text-left">{{ debt.receiver.username }}</td>
-                                        <td><a class="text-left"><a href="{{ path('archived', {id: debt.id} ) }}">Archiver</a></td>
+                                        <td><a class="badge-item2 text-left"><a href="{{ path('archived', {id: debt.id} ) }}">Archiver</a></td>
 
                                     </tr>
                                 {% endfor %}
