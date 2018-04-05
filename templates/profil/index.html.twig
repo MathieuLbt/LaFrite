@@ -14,7 +14,14 @@
                             </figure>
                             <div class="featured-author-info">
                                 <h2 class="name">{{ app.user.username }}</h2>
-                                <div class="desc">@JohnDoe</div>
+                                <div class="desc"><div><b><i>Statut : {% if app.user.receivables|length + app.user.debts|length < 1 and app.user.dateSubscription < "now"|date("m/d/Y") %}
+                                            Noob
+                                        {% elseif app.user.receivables|length + app.user.debts|length < 2 %}
+                                            Crevard
+                                                {% else %}
+                                            pipi
+                                        {% endif %}
+                                            </i></b></div></div>
                             </div>
                         </div>
                     </div>
@@ -23,21 +30,13 @@
                             <div class="item">
                                 <a href="#">
                                     <div class="name">- Dettes en cours -</div>
-                                    <div class="value">208</div>
+                                    <div class="value">{{ app.user.receivables|length + app.user.debts|length }}</div>
                                 </a>
                             </div>
                             <div class="item">
                                 <a href="#">
-                                    <div class="name">- Dettes archivés -</div>
+                                    <div class="name">- Dettes archivées -</div>
                                     <div class="value">3,729</div>
-                                </a>
-                            </div>
-                            <div class="item">
-                                <a href="#">
-                                    <div class="icon">
-                                        <div>More</div>
-                                        <i class="ion-chevron-right"></i>
-                                    </div>
                                 </a>
                             </div>
                         </div>

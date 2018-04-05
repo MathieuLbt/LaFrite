@@ -80,7 +80,7 @@ class User implements UserInterface, \Serializable
     /**
      * @ORM\Column(type="date")
      */
-    protected $dateSubscription;
+    public $dateSubscription;
 
 
     public function __construct()
@@ -151,6 +151,18 @@ class User implements UserInterface, \Serializable
     public function setEmail($email)
     {
         $this->email = $email;
+    }
+
+    public function getStatut($statut)
+    {
+        if (isset($this->attributs[$nom]))
+        {
+            return 'noob';
+        }
+        elseif(isset($this->attributs[$nom]))
+        {
+            return 'crevard';
+        }
     }
 
 
