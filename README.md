@@ -12,7 +12,9 @@ Sur mac : $ curl -sS https://getcomposer.org/installer | php Sur windows : se re
 
 4 - Dans .env modifié la Database DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name Changez votre db_user et db_password selon votre machine et apellez votre db_name "laFrite" Varie selon votre type de machine ( windows - mac )
 
-Pensez a effectuer ces modifs sur le swiftMailer
+Toujours dans .env modifier  ###> symfony/swiftmailer-bundle ###
+et à la ligne "MAILER_URL=" on rajoute gmail://lafrite.labarquette@gmail.com:labarquette@localhost
+
 
 5 - Démarrer SQL Effectuez les commandes suivantes :
 
