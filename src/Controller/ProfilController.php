@@ -33,6 +33,6 @@ class ProfilController extends Controller
 
         return $this->redirectToRoute('profil');
     }
-    
+
 
 }

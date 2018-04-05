@@ -23,14 +23,13 @@
                             <div class="item">
                                 <a href="#">
                                     <div class="name">- Current debts -</div>
-                                    <div class="value">{{ app.user.receivables|length + app.user.debts|length }}
-                                    </div>
+                                    <div class="value">{{ app.user.allCurrentDebt|length }}</div>
                                 </a>
                             </div>
                             <div class="item">
                                 <a href="#">
                                     <div class="name">- Old debts -</div>
-                                    <div class="value"></div>
+                                    <div class="value">{{ app.user.allIsArchived|length }}</div>
                                 </a>
                             </div>
                         </div>

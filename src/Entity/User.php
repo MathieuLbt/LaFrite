@@ -61,11 +61,10 @@ class User implements UserInterface, \Serializable
     private $password;
 
 
-
     /**
      * @ORM\Column(name="is_active", type="boolean")
      */
-    private $isActive =true ;
+    private $isActive = true;
 
     /**
      * @var array
@@ -125,14 +124,17 @@ class User implements UserInterface, \Serializable
     {
         return $this->plainPassword;
     }
+
     public function setPlainPassword($password)
     {
         $this->plainPassword = $password;
     }
+
     public function getPassword()
     {
         return $this->password;
     }
+
     public function setPassword($password)
     {
         $this->password = $password;
@@ -153,7 +155,6 @@ class User implements UserInterface, \Serializable
     {
         $this->email = $email;
     }
-
 
 
     /**
@@ -180,6 +181,7 @@ class User implements UserInterface, \Serializable
 
         return ['ROLE_USER'];
     }
+
     /**
      * @return mixed
      */
@@ -235,6 +237,7 @@ class User implements UserInterface, \Serializable
     {
         $this->setPlainPassword(null);
     }
+
     /** @see \Serializable::serialize() */
     public function serialize()
     {
@@ -320,28 +323,20 @@ class User implements UserInterface, \Serializable
         $now = new \DateTime();
 
 
-        if (count($this->receivables ) . count($this->debts ) < 1 and $this->dateSubscription > $month)
-        {
+        if (count($this->receivables) . count($this->debts) < 1 and $this->dateSubscription > $month) {
             return $this->statut = 'noob';
-        }
-        elseif (count($this->receivables ) < 1 and $this->dateSubscription < $month)
-        {
+        } elseif (count($this->receivables) < 1 and $this->dateSubscription < $month) {
             return $this->statut = 'radin';
-        }
-        elseif (count($this->receivables) > 10)
-        {
-           return $this->statut = 'généreux';
-        }
-        elseif (count($this->debts ) > 3)
-        {
+        } elseif (count($this->receivables) > 10) {
+            return $this->statut = 'généreux';
+        } elseif (count($this->debts) > 3) {
             return $this->statut = 'profiteur';
         }
         //        elseif (count($this->receivables ) < 1 and $this->dateSubscription < $month)
 //        {
 //            return $this->statut = 'fiable';
 //        }
-        elseif (count($this->debts ) > 30)
-        {
+        elseif (count($this->debts) > 30) {
             return $this->statut = 'fauché';
         }
 //                elseif ($this->debtDeadline < $now and $this->isArchived == false)
@@ -352,16 +347,11 @@ class User implements UserInterface, \Serializable
 //        {
 //            return $this->statut = 'pigeon';
 //        }
-        elseif (count($this->receivables ) > 50)
-        {
+        elseif (count($this->receivables) > 50) {
             return $this->statut = 'dieu';
-        }
-                elseif (count($this->receivables ) > 25 and count($this->debts ) > 25 and $this->dateSubscription < $year)
-        {
+        } elseif (count($this->receivables) > 25 and count($this->debts) > 25 and $this->dateSubscription < $year) {
             return $this->statut = 'el padre';
-        }
-        else
-        {
+        } else {
             return $this->statut = 'gars sûr';
         }
     }
@@ -370,12 +360,31 @@ class User implements UserInterface, \Serializable
     {
         $all = array_merge($this->receivables->toArray(), $this->debts->toArray());
 
-        $all = array_filter($all, function(Debt $debt) {
-            return ! $debt->getisArchived();
+        $all = array_filter($all, function (Debt $debt) {
+            return !$debt->getisArchived();
         });
 
-        usort($all, function(Debt $a, Debt $b) {
+        usort($all, function (Debt $a, Debt $b) {
             return $a->getDebtDeadline() > $b->getDebtDeadline() ? 1 : -1;
+        });
+
+        return $all;
+    }
+
+    public function getAllCurrentDebt()
+    {
+        $currentDebts = array_merge($this->receivables->toArray(), $this->debts->toArray());
+        $currentDebts = array_filter($currentDebts, function (Debt $debt) {
+            return !$debt->getisArchived();
+        });
+
+        return $currentDebts;
+    }
+    public function getAllIsArchived()
+    {
+        $all = array_merge($this->receivables->toArray(), $this->debts->toArray());
+        $all = array_filter($all, function(Debt $debt) {
+            return $debt->getisArchived();
         });
 
         return $all;
