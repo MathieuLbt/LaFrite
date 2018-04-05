@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\DebtType;
 use App\Entity\Debt;
+use Swift_Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,7 +14,7 @@ class NewDebtController extends Controller
     /**
      * @Route("/newdebt", name="newdebt")
      */
-    public function addAction(Request $request)
+    public function addAction(Request $request, Swift_Mailer $mailer)
     {
         // 1) build the form
         $debt = new Debt();
@@ -22,6 +23,7 @@ class NewDebtController extends Controller
         // 2) handle the submit (will only happen on POST)
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $submittedDebt = $form->getData();
 
             // 3) save the User!
             $entityManager = $this->getDoctrine()->getManager();
