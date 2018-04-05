@@ -1,13 +1,9 @@
 <?php
-
-
 namespace App\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
-
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity(fields="email", message="Email already taken")
@@ -21,7 +17,6 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="integer")
      */
     protected $id;
-
     /**
      * @ORM\Column(type="string", length=255, unique=true)
      * @Assert\NotBlank()
@@ -34,6 +29,14 @@ class User implements UserInterface, \Serializable
      */
     private $username;
     /**
+     * @ORM\OneToMany(targetEntity="Debt", mappedBy="receiver")
+     */
+    private $receivables;
+    /**
+     * @ORM\OneToMany(targetEntity="Debt", mappedBy="giver")
+     */
+    private $debts;
+    /**
      * @Assert\NotBlank()
      * @Assert\Length(max=4096)
      */
@@ -45,30 +48,26 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(type="string", length=64)
      */
     private $password;
-
     /**
      * @ORM\Column(name="is_active", type="boolean")
      */
-    private $isActive;
-
+    private $isActive =true ;
     /**
      * @var array
      */
     private $roles;
-
-
     /**
      * @ORM\Column(type="boolean")
      */
     private $isAdmin = false;
-
+    /**
+     * @ORM\Column(type="date")
+     */
+    protected $dateSubscription;
     public function __construct()
     {
-        $this->isActive = true;
-        // may not be needed, see section on salt below
-        // $this->salt = md5(uniqid('', true));
+        $this->dateSubscription = new \Datetime();
     }
-
     /**
      * @return mixed
      */
@@ -76,7 +75,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->id;
     }
-
     /**
      * @param mixed $id
      */
@@ -84,7 +82,6 @@ class User implements UserInterface, \Serializable
     {
         $this->id = $id;
     }
-
     /**
      * @return mixed
      */
@@ -92,7 +89,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->username;
     }
-
     /**
      * @param mixed $username
      */
@@ -100,7 +96,6 @@ class User implements UserInterface, \Serializable
     {
         $this->username = $username;
     }
-
     public function getPlainPassword()
     {
         return $this->plainPassword;
@@ -117,7 +112,6 @@ class User implements UserInterface, \Serializable
     {
         $this->password = $password;
     }
-
     /**
      * @return mixed
      */
@@ -125,7 +119,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->email;
     }
-
     /**
      * @param mixed $email
      */
@@ -133,8 +126,6 @@ class User implements UserInterface, \Serializable
     {
         $this->email = $email;
     }
-
-
     /**
      * Returns the roles granted to the user.
      *
@@ -156,7 +147,6 @@ class User implements UserInterface, \Serializable
         if ($this->getisAdmin()) {
             return ['ROLE_ADMIN'];
         }
-
         return ['ROLE_USER'];
     }
     /**
@@ -166,7 +156,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->isActive;
     }
-
     /**
      * @param mixed $isActive
      */
@@ -174,7 +163,6 @@ class User implements UserInterface, \Serializable
     {
         $this->isActive = $isActive;
     }
-
     /**
      * @return mixed
      */
@@ -182,7 +170,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->isAdmin;
     }
-
     /**
      * @param mixed $isAdmin
      */
@@ -190,8 +177,6 @@ class User implements UserInterface, \Serializable
     {
         $this->isAdmin = $isAdmin;
     }
-
-
     /**
      * Returns the salt that was originally used to encode the password.
      *
@@ -203,7 +188,6 @@ class User implements UserInterface, \Serializable
     {
         return null;
     }
-
     /**
      * Removes sensitive data from the user.
      *
@@ -225,7 +209,6 @@ class User implements UserInterface, \Serializable
             // $this->salt,
         ));
     }
-
     /** @see \Serializable::unserialize() */
     public function unserialize($serialized)
     {
@@ -237,8 +220,46 @@ class User implements UserInterface, \Serializable
             // $this->salt
             ) = unserialize($serialized);
     }
+    /**
+     * @return mixed
+     */
+    public function getDateSubscrition()
+    {
+        return $this->dateSubscrition;
+    }
+    /**
+     * @param mixed $dateSubscrition
+     */
+    public function setDateSubscrition($dateSubscrition)
+    {
+        $this->dateSubscrition = $dateSubscrition;
+    }
+    /**
+     * @return mixed
+     */
+    public function getReceivables()
+    {
+        return $this->receivables;
+    }
+    /**
+     * @param mixed $receivables
+     */
+    public function setReceivables($receivables)
+    {
+        $this->receivables = $receivables;
+    }
+    /**
+     * @return mixed
+     */
+    public function getDebts()
+    {
+        return $this->debts;
+    }
+    /**
+     * @param mixed $debts
+     */
+    public function setDebts($debts)
+    {
+        $this->debts = $debts;
+    }
 }
-
-
-
-

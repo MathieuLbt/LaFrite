@@ -16,14 +16,12 @@ class PostType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, [
-                'label' => "Titre de l'atricle",
+                'label' => "Title",
             ])
             ->add('body', TextareaType::class,
                 [
-                    'label' => "Contenu de l'articles",
-                ])
-
-        ;
+                    'label' => "Description",
+                ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

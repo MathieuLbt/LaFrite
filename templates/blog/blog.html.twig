@@ -9,7 +9,8 @@
         <ul>
         {% for post in post %}
             <li>{{ post.title }}</li>
-            <li>{{ post.body }}</li>
+            <li><img src="{{ vich_uploader_asset(post, 'imgFile') }}"/></li>
+            <li>{{ post.body | raw }}</li>
         {% endfor %}
         </ul>
         {%  endblock %}
