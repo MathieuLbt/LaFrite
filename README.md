@@ -1,4 +1,4 @@
-#LaFrite 
+LaFrite 
 
 Voici le projet d'une équipe innovante et aux multiples qualités
 
@@ -11,6 +11,8 @@ Pour débuter vous devez Installer PHP, apache, MySQL et composer. Attention à 
 Sur mac : $ curl -sS https://getcomposer.org/installer | php Sur windows : se rendre sur https://getcomposer.org/download/ et télécharger composer 3 - Exécutez la commande à l'intérieur du dossier depuis votre terminal : composer install
 
 4 - Dans .env modifié la Database DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name Changez votre db_user et db_password selon votre machine et apellez votre db_name "laFrite" Varie selon votre type de machine ( windows - mac )
+
+Pensez a effectuer ces modifs sur le swiftMailer
 
 5 - Démarrer SQL Effectuez les commandes suivantes :
 
