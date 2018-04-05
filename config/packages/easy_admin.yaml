@@ -54,8 +54,11 @@ easy_admin:
                     - 'id'
                     - { property: 'title', label: 'Title' }
                     - { property: 'isPublished', label: 'Published', type: 'boolean' }
+                    - { property: 'post_img', label: 'img', type: 'image', base_path: '%app.path.post_img%' }
+                    - { property: 'updatedAt', label: 'UpdateTime' }
             form:
                 fields:
                     - { property: 'title', label: 'Title' }
                     - { property: 'body', label: 'Description', type: 'ckeditor' }
+                    - { property: 'imgFile', label: 'img', type: 'vich_image' }
                     - { property: 'isPublished', label: 'Published' }

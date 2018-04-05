@@ -12,11 +12,14 @@ class PostFixtures extends Fixture
     {
         $i = 1;
 
-        while ($i <= 100) {
+        while ($i <= 5) {
             $post = new Post();
             $post->setTitle("Titre de l'article n°" . $i);
             $post->setBody("Contenu de l'article n°" . $i);
             $post->setIsPublished($i%2);
+            $post->setUpdatedAt(new \DateTime());
+
+
 
             $manager->persist($post);
             $i++;

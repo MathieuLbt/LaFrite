@@ -24,14 +24,15 @@ class PostRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('p')
             ->where('p.something = :value')->setParameter('value', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(5)
             ->getQuery()
             ->getResult()
             ;
     }
     public function getBlog(){
         return $this->createQueryBuilder("post")
+            ->orderBy('post.updatedAt', 'DESC')
             ->getQuery()
             ->getResult();
     }
