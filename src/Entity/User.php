@@ -262,4 +262,40 @@ class User implements UserInterface, \Serializable
     {
         $this->debts = $debts;
     }
+
+    public function getAllDebtsByDate()
+    {
+        $all = array_merge($this->receivables->toArray(), $this->debts->toArray());
+
+        $all = array_filter($all, function(Debt $debt) {
+            return ! $debt->getisArchived();
+        });
+
+        usort($all, function(Debt $a, Debt $b) {
+            return $a->getDebtDeadline() > $b->getDebtDeadline() ? 1 : -1;
+        });
+
+        return $all;
+    }
+
+    public function getAllIsArchived()
+    {
+        $all = array_merge($this->receivables->toArray(), $this->debts->toArray());
+        $all = array_filter($all, function(Debt $debt) {
+            return $debt->getisArchived();
+        });
+
+        return $all;
+    }
+
+
+    public function getAllCurrentDebt()
+    {
+        $currentDebts = array_merge($this->receivables->toArray(), $this->debts->toArray());
+        $currentDebts = array_filter($currentDebts, function(Debt $debt) {
+            return ! $debt->getisArchived();
+        });
+
+        return $currentDebts;
+    }
 }

@@ -23,13 +23,17 @@
                             <div class="item">
                                 <a href="#">
                                     <div class="name">- Dettes en cours -</div>
-                                    <div class="value">208</div>
+                                 <div class="value">
+                                  {{ app.user.allCurrentDebt|length }}
+                                 </div>
                                 </a>
                             </div>
                             <div class="item">
                                 <a href="#">
                                     <div class="name">- Dettes archivés -</div>
-                                    <div class="value">3,729</div>
+                                    <div class="value">
+                                    {{ app.user.allIsArchived|length }}
+                                    </div>
                                 </a>
                             </div>
                             <div class="item">
@@ -45,7 +49,50 @@
                             "Eur costrict mobsa undivani krusvuw blos andugus pu aklosah"
                         </div>
                         <div class="featured-author-footer">
-                            <a href="#">See All Authors</a>
+
+
+
+
+
+
+
+
+
+
+                            <table class="table-fill">
+                                <thead>
+                                <tr>
+                                    <th class="text-left">Deadline</th>
+                                    <th class="text-left">A rembourser :</th>
+                                    <th class="text-left">Par :</th>
+                                    <th class="text-left">Pour :</th>
+                                    <th class="text-left"></th>
+                                </tr>
+                                </thead>
+                                <tbody class="table-hover">
+                                {% for debt in app.user.allDebtsByDate %}
+                                 <tr>
+                                    <td class="text-left">{{ debt.debtDeadline|date("d/m/Y") }}</td>
+                                    <td class="text-left">{{ debt.nameDebtType }}</td>
+                                    <td class="text-left">{{ debt.giver.username }}</td>
+                                    <td class="text-left">{{ debt.receiver.username }}</td>
+                                    <td><a class="text-left"><a href="{{ path('archived', {id: debt.id} ) }}">Archiver</a></td>
+
+                                 </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+
+
+
+
+
+
+
+
+
+
                         </div>
                     </div>
                     <div class="featured-author-cover">

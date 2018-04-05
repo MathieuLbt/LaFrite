@@ -16,6 +16,11 @@ class Debt
     protected $id;
 
     /**
+     * @ORM\Column(name="isArchived", type="boolean", nullable=true)
+     */
+    protected $isArchived = false;
+
+    /**
      * Celui qui doit l'argent : débiteur
      * @ORM\ManyToOne(targetEntity="User", inversedBy="debts")
      * @ORM\JoinColumn(name="giver", referencedColumnName="id", nullable=false)
@@ -43,6 +48,8 @@ class Debt
      * @ORM\Column(type="date")
      */
     protected $date;
+
+
 
 
     public function __construct()
@@ -145,6 +152,23 @@ class Debt
     {
         $this->date = $date;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getisArchived()
+    {
+        return $this->isArchived;
+    }
+
+    /**
+     * @param mixed $isArchived
+     */
+    public function setIsArchived($isArchived)
+    {
+        $this->isArchived = $isArchived;
+    }
+
 
 
 }
