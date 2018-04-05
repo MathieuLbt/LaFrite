@@ -30,6 +30,23 @@ class NewDebtController extends Controller
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
             $request->getSession()->getFlashBag()->add('notice', 'Debt saved');
+
+            $giver = $submittedDebt->getGiver();
+            $receiver = $submittedDebt->getReceiver();
+
+            $messageGiver = (new \Swift_Message('Confirmation de réception de dette'))
+                ->setFrom(['lafrite.labarquette@gmail.com' => 'La frite'])
+                ->setTo($giver->getEmail())
+                ->setBody('Vous avez reçu une dette');
+
+            $messageReceiver = (new \Swift_Message('Confirmation de création de dette'))
+                ->setFrom(['lafrite.labarquette@gmail.com' => 'La frite'])
+                ->setTo($receiver->getEmail())
+                ->setBody('Votre dette a bien été créée');
+
+            $mailer->send($messageGiver);
+            $mailer->send($messageReceiver);
+
             return $this->redirectToRoute('profil');
         }
 

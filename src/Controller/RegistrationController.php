@@ -36,7 +36,14 @@ class RegistrationController extends Controller
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
 
-            return $this->redirectToRoute('../login');
+            $message = (new \Swift_Message('Confirmation de création de compte'))
+                ->setFrom(['lafrite.labarquette@gmail.com' => 'La frite'])
+                ->setTo($user->getEmail())
+                ->setBody('Votre compte a bien été créé');
+
+            $mailer->send($message);
+
+            return $this->redirectToRoute('home');
         }
 
         return $this->render(
