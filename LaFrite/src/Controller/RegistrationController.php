@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Form\UserType;
 use App\Entity\User;
+use Swift_Mailer;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,7 +15,7 @@ class RegistrationController extends Controller
     /**
      * @Route("/register", name="user_registration")
      */
-    public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder)
+    public function registerAction(Request $request, UserPasswordEncoderInterface $passwordEncoder, Swift_Mailer $mailer)
     {
         // 1) build the form
         $user = new User();
@@ -36,6 +37,11 @@ class RegistrationController extends Controller
             // ... do any other work - like sending them an email, etc
             // maybe set a "flash" success message for the user
 
+            $message = (new \Swift_Message('Confirmation de création de compte'))
+                ->setFrom(['lafrite.labarquette@gmail.com' => 'La Frite'])
+                ->setTo($user->getEmail())
+                ->setBody('Votre compte a bien été créé');
+            $mailer->send($message);
             return $this->redirectToRoute('index');
         }
 

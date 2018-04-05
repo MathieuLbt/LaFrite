@@ -22,6 +22,7 @@
       <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/doctrine/orm" />
       <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/easycorp/easy-log-handler" />
       <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/easycorp/easyadmin-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/egulias/email-validator" />
       <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/jdorn/sql-formatter" />
       <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/ocramius/package-versions" />
@@ -33,6 +34,7 @@
       <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/psr/log" />
       <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/psr/simple-cache" />
       <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/sensio/framework-extra-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/symfony/asset" />
       <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/symfony/cache" />
       <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/symfony/class-loader" />
@@ -73,6 +75,7 @@
       <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/symfony/security" />
       <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/symfony/security-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/symfony/stopwatch" />
+      <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/symfony/swiftmailer-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/symfony/translation" />
       <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/symfony/twig-bridge" />
       <excludeFolder url="file://$MODULE_DIR$/LaFrite/vendor/symfony/twig-bundle" />
@@ -112,6 +115,7 @@
           <root url="file://$MODULE_DIR$/LaFrite/vendor/doctrine/orm" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/easycorp/easy-log-handler" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/easycorp/easyadmin-bundle" />
+          <root url="file://$MODULE_DIR$/LaFrite/vendor/egulias/email-validator" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/jdorn/sql-formatter" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/monolog/monolog" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/ocramius/package-versions" />
@@ -123,6 +127,7 @@
           <root url="file://$MODULE_DIR$/LaFrite/vendor/psr/log" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/psr/simple-cache" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/sensio/framework-extra-bundle" />
+          <root url="file://$MODULE_DIR$/LaFrite/vendor/swiftmailer/swiftmailer" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/asset" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/cache" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/class-loader" />
@@ -163,6 +168,7 @@
           <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/security" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/security-bundle" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/stopwatch" />
+          <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/swiftmailer-bundle" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/translation" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/twig-bridge" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/twig-bundle" />
@@ -195,6 +201,7 @@
           <root url="file://$MODULE_DIR$/LaFrite/vendor/doctrine/orm" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/easycorp/easy-log-handler" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/easycorp/easyadmin-bundle" />
+          <root url="file://$MODULE_DIR$/LaFrite/vendor/egulias/email-validator" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/jdorn/sql-formatter" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/monolog/monolog" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/ocramius/package-versions" />
@@ -206,6 +213,7 @@
           <root url="file://$MODULE_DIR$/LaFrite/vendor/psr/log" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/psr/simple-cache" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/sensio/framework-extra-bundle" />
+          <root url="file://$MODULE_DIR$/LaFrite/vendor/swiftmailer/swiftmailer" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/asset" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/cache" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/class-loader" />
@@ -246,6 +254,7 @@
           <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/security" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/security-bundle" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/stopwatch" />
+          <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/swiftmailer-bundle" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/translation" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/twig-bridge" />
           <root url="file://$MODULE_DIR$/LaFrite/vendor/symfony/twig-bundle" />
